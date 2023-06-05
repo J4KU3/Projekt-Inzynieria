@@ -1,0 +1,15 @@
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\ProjektInzynieria.exe.config
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\ProjektInzynieria.exe
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\ProjektInzynieria.pdb
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.csproj.AssemblyReference.cache
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\MainWindow.g.cs
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\App.g.cs
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria_MarkupCompile.cache
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria_MarkupCompile.lref
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\MainWindow.baml
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.g.resources
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.Properties.Resources.resources
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.csproj.GenerateResource.cache
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.csproj.CoreCompileInputs.cache
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.exe
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.pdb
