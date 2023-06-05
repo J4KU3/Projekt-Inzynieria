@@ -9,5 +9,11 @@ namespace ProjektInzynieria.Model
 {
     public class ComplaintsModel: Complaints
     {
+        public ComplaintsModel(Complaints Copycomplaints)
+        {
+            IDComplaint = Copycomplaints.IDComplaint;
+            OrderID = Copycomplaints.OrderID;
+            Reason = Copycomplaints.Reason;
+        }
     }
 }
