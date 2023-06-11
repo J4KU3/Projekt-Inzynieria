@@ -13,3 +13,9 @@ C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynie
 C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.csproj.CoreCompileInputs.cache
 C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.exe
 C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.pdb
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\EntityFramework.dll
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\EntityFramework.xml
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria_Content.g.cs
+C:\Users\kuba2\OneDrive\Pulpit\InżynieriaProj\Projekt-Inzynieria\ProjektInzynieria\ProjektInzynieria\obj\Debug\ProjektInzynieria.csproj.CopyComplete

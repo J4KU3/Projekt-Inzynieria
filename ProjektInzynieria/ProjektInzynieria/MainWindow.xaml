@@ -7,6 +7,43 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl  Margin="0,-46,0.333,-0.333">
+            <TabItem Header="LoginPage">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="637*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Login" Margin="10,14,31,0" VerticalAlignment="Top" Height="53" FontSize="25"/>
+                        <TextBox Height="50" Margin="10,68,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+
+                        <Label Content="Hasło" Margin="10,147,31,0" VerticalAlignment="Top" Height="53" FontSize="25"/>
+                        <TextBox Height="50" Margin="10,205,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+                        
+                        <Button Content="Zaloguj" Margin="10,0,10,10" Height="131" VerticalAlignment="Bottom"/>
+
+                    </Grid>
+                    <Label Content="Witamy w systemie" Grid.Column="1" Margin="26,0,24.667,159" FontSize="60" RenderTransformOrigin="0.5,0.5" Height="107" VerticalAlignment="Bottom">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="26.078"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Panel Użytkownika">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0"/>
+            </TabItem>
+            <TabItem Header="Panel Admin Panel">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
