@@ -43,10 +43,14 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Panel Użytkownika">
-                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0"/>
+                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0">
+                    <Label Content="panel zwykły" HorizontalAlignment="Left" Margin="333,209,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Panel Admin Panel">
-                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0"/>
+                <Grid Background="#FFE5E5E5" Margin="0,0,-78,0">
+                    <Label Content="Panel administratora" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

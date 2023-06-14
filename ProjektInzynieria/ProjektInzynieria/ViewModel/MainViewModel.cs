@@ -24,7 +24,8 @@ namespace ProjektInzynieria.ViewModel
         
         private string _selectedTabIndex;
 
-       
+
+
 
         public string Username
         {
@@ -77,12 +78,18 @@ namespace ProjektInzynieria.ViewModel
 
         private void Login()
         {
+            bool IsAdmin=true;
             bool isEmployeeExists = CheckEmployeeExists(Username, Password);
+            bool haveAnAdminFunction = CheckAdmin(Username,Password,IsAdmin);
 
-            if (isEmployeeExists)
+            if (isEmployeeExists && !haveAnAdminFunction)
             {
                 // Przejście do innej zakładki
                 SelectedTabIndex = "1"; 
+            }
+            if (isEmployeeExists && haveAnAdminFunction)
+            {
+                SelectedTabIndex = "2";
             }
             else
             {
@@ -95,12 +102,22 @@ namespace ProjektInzynieria.ViewModel
 
         private bool CheckEmployeeExists(string username, string password)
         {
-            using (var context = new Data.ZarzadzanieFirmaDBEntities()) 
+            using (var context = new Data.ZarzadzanieFirmaDBEntities())
             {
                 var employee = context.Employees.FirstOrDefault(e => e.Mail == username && e.Passsword == password);
                 return employee != null;
             }
+           
         }
+        private bool CheckAdmin(string username, string password, bool isAdmin)
+        {
+            using (var context = new Data.ZarzadzanieFirmaDBEntities())
+            {
+                var employee = context.Employees.FirstOrDefault(e => e.Mail == username && e.Passsword == password && e.IsAdmin==isAdmin);
+                return employee != null;
+            }
+        }
+
 
 
     }
