@@ -21,12 +21,12 @@
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Label Content="Login" Margin="10,14,31,0" VerticalAlignment="Top" Height="53" FontSize="25"/>
-                        <TextBox Height="50" Margin="10,68,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+                        <TextBox Name="LoginBox" Text="{Binding Username, Mode=TwoWay}" Height="50" Margin="10,68,20,0" TextWrapping="Wrap"  VerticalAlignment="Top" FontSize="30"/>
 
                         <Label Content="Hasło" Margin="10,147,31,0" VerticalAlignment="Top" Height="53" FontSize="25"/>
-                        <TextBox Height="50" Margin="10,205,20,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+                        <TextBox x:Name="PasswordBo" Height="50" Margin="10,205,20,0" TextWrapping="Wrap" Text="{Binding Password, Mode=TwoWay}" VerticalAlignment="Top" FontSize="30"/>
 
-                        <Button Content="Zaloguj" Command="{Binding ChangeTabCommand}" CommandParameter="1" Margin="10,0,10,10" Height="131" VerticalAlignment="Bottom"/>
+                        <Button Content="Zaloguj" Command="{Binding LoginCommand}"  Margin="10,0,10,10" Height="131" VerticalAlignment="Bottom"/>
 
                     </Grid>
                     <Label Content="Witamy w systemie" Grid.Column="1" Margin="26,0,24.667,159" FontSize="60" RenderTransformOrigin="0.5,0.5" Height="107" VerticalAlignment="Bottom">

@@ -21,7 +21,10 @@ namespace ProjektInzynieria.ViewModel
         private ObservableCollection<ComplaintsModel> _listOfComplaints = new ObservableCollection<ComplaintsModel>();
         private ObservableCollection<EmployeesModel> _listOfEmployees = new ObservableCollection<EmployeesModel>();
         private ObservableCollection<OrderModel> _listOfOrders = new ObservableCollection<OrderModel>();
-
+        private string _username;
+       
+        private string _password;
+        
         private string _selectedTabIndex;
 
         public ObservableCollection<ClientModel> ListOfClients
@@ -45,7 +48,24 @@ namespace ProjektInzynieria.ViewModel
             set { _listOfOrders = value; }
         }
 
-
+        public string Username
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
 
         public string SelectedTabIndex
         {
@@ -58,11 +78,13 @@ namespace ProjektInzynieria.ViewModel
         }
 
         public ICommand ChangeTabCommand { get; }
+        public ICommand LoginCommand { get; }
 
         //konstruktor
         public MainViewModel()
         {
             ChangeTabCommand = new RelayCommand<string>(ChangeTab);
+            LoginCommand = new RelayCommand(Login);
         }
         //
 
@@ -73,8 +95,34 @@ namespace ProjektInzynieria.ViewModel
             SelectedTabIndex = TabIndex;
             
         }
-        //
-        //
+
+
+        private void Login()
+        {
+            bool isEmployeeExists = CheckEmployeeExists(Username, Password);
+
+            if (isEmployeeExists)
+            {
+                // Przejście do innej zakładki
+                SelectedTabIndex = "1"; // Indeks zakładki do przejścia
+            }
+            else
+            {
+               
+                // Wyczyść pola logowania
+                Username = string.Empty;
+                Password = string.Empty;
+            }
+        }
+
+        private bool CheckEmployeeExists(string username, string password)
+        {
+            using (var context = new Data.ZarzadzanieFirmaDBEntities()) // Zastąp YourDbContext nazwą swojego kontekstu bazy danych
+            {
+                var employee = context.Employees.FirstOrDefault(e => e.Mail == username && e.Passsword == password);
+                return employee != null;
+            }
+        }
 
 
     }
