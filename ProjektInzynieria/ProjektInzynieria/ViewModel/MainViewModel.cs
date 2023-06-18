@@ -1,6 +1,7 @@
 ﻿
 using GalaSoft.MvvmLight.Command;
 using ProjektInzynieria.Comand;
+using ProjektInzynieria.Data;
 using ProjektInzynieria.Model;
 using System;
 using System.Collections.Generic;
@@ -17,32 +18,17 @@ namespace ProjektInzynieria.ViewModel
      public class MainViewModel : BaseViewModel
     {
 
-       
-        private string _username;
-       
-        private string _password;
-        
+
+        private EmployeesModel _employee;
         private string _selectedTabIndex;
 
-
-
-
-        public string Username
+        public EmployeesModel Employee
         {
-            get { return _username; }
+            get { return _employee; }
             set
             {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
-            }
-        }
-        public string Password
-        {
-            get { return _password; }
-            set
-            {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
+                _employee = value;
+                OnPropertyChanged(nameof(Employee));
             }
         }
 
@@ -62,6 +48,7 @@ namespace ProjektInzynieria.ViewModel
         //konstruktor
         public MainViewModel()
         {
+            Employee = new EmployeesModel(new Employees());
             ChangeTabCommand = new RelayCommand<string>(ChangeTab);
             LoginCommand = new RelayCommand(Login);
         }
@@ -79,8 +66,8 @@ namespace ProjektInzynieria.ViewModel
         private void Login()
         {
             bool IsAdmin=true;
-            bool isEmployeeExists = CheckEmployeeExists(Username, Password);
-            bool haveAnAdminFunction = CheckAdmin(Username,Password,IsAdmin);
+            bool isEmployeeExists = CheckEmployeeExists(Employee.Mail, Employee.Passsword);
+            bool haveAnAdminFunction = CheckAdmin(Employee.Mail, Employee.Passsword, IsAdmin);
 
             if (isEmployeeExists && !haveAnAdminFunction)
             {
@@ -93,10 +80,10 @@ namespace ProjektInzynieria.ViewModel
             }
             else
             {
-               
+
                 // Wyczyść pola logowania
-                Username = string.Empty;
-                Password = string.Empty;
+                Employee.Mail = string.Empty;
+                Employee.Passsword = string.Empty;
             }
         }
 
