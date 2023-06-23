@@ -64,6 +64,9 @@ namespace ProjektInzynieria.ViewModel
             
         }
 
+        #region PanelLogowania
+
+
         #region logowanie
         private void Login()
         {
@@ -116,16 +119,18 @@ namespace ProjektInzynieria.ViewModel
 
         private void Logout()
         {
-            // Wykonaj logikę wylogowania, np. czyść dane logowania
+            
             Employee.Mail = string.Empty;
             Employee.Passsword = string.Empty;
             IsLogin = false;
 
-            // Przejście do ekranu logowania
+          
             SelectedTabIndex = "0";
         }
 
         #endregion
 
+
+        #endregion
     }
 }
