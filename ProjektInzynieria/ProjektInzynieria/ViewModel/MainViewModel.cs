@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 
@@ -45,6 +46,7 @@ namespace ProjektInzynieria.ViewModel
         public ICommand ChangeTabCommand { get; }
         public ICommand LoginCommand { get; }
         public ICommand LogoutCommand { get; }
+        public ICommand CloseProgram { get; }
 
         //konstruktor
         public MainViewModel()
@@ -53,6 +55,7 @@ namespace ProjektInzynieria.ViewModel
             ChangeTabCommand = new RelayCommand<string>(ChangeTab);
             LoginCommand = new RelayCommand(Login);
             LogoutCommand = new RelayCommand(Logout);
+            CloseProgram = new RelayCommand(Cl);
         }
         //
 
@@ -129,7 +132,15 @@ namespace ProjektInzynieria.ViewModel
         }
 
         #endregion
+        private void Cl()
+        {
 
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Close();
+            Application.Current.Shutdown();
+
+
+        }
 
         #endregion
     }

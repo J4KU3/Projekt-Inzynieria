@@ -13,7 +13,7 @@
     <Grid>
 
         <TabControl  Margin="0,-46,0.333,-0.333" SelectedIndex="{Binding SelectedTabIndex}">
-            <TabItem Header="1LoginPage">
+            <TabItem Header="0LoginPage">
                 <Grid Background="#FFE2B977">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="150*"/>
@@ -44,52 +44,126 @@
 
                 </Grid>
             </TabItem>
-            <TabItem Header="2Panel Użytkownika">
+            <TabItem Header="1Panel Użytkownika">
 
                 <Grid Background="#FFE5E5E5" Margin="0,0,-2.333,0">
                     <Image Source="Images/Zdjecie2.jpg" Margin="-284,-293,-344.333,-29"/>
                     <Label Content="panel zwykły" HorizontalAlignment="Left" Margin="333,209,0,0" VerticalAlignment="Top"/>
                     <Grid Margin="0,0,10,10" HorizontalAlignment="Right" Width="143" >
                         <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
-                        <Button Content="Exit" Margin="12,0,9.667,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" />
+                        <Button Content="Exit" Margin="12,0,9.667,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
                         <Button Content="Złóż zamówienie" Margin="12,34,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
                         <Button Content="złóż reklamacje" Margin="12,93,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold"/>
-                        <Button Content="PRzeglądaj zamówienia" Margin="12,152,10,0" RenderTransformOrigin="0.5,0.5" Height="54" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="2"/>
+                        <Button Content="Przeglądaj zamówienia" Margin="12,152,10,0" RenderTransformOrigin="0.5,0.5" Height="54" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="2"/>
 
                     </Grid>
                    
 
                 </Grid>
             </TabItem>
-            <TabItem Header="3 Admin Panel">
+            <TabItem Header="2 Admin Panel">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-2.333,0">
                     <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
                     <Label Content="Panel administratora" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
-                    <Grid Margin="0,0,0,10" HorizontalAlignment="Right" Width="143" >
+                    <Grid HorizontalAlignment="Right" Width="143" >
                         <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
-                        <Button Content="Exit" Margin="12,0,9.667,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" />
-                        <Button Content="Złóż zamówienie" Margin="12,34,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
-                        <Button Content="złóż reklamacje" Margin="12,93,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold"/>
-                        <Button Content="Stwórz raport" Margin="12,152,10,0" Height="54" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
-                        <Button Content="Przeglądaj" Margin="12,211,10,0" RenderTransformOrigin="0.5,0.5" Height="54" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
-
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
                     </Grid>
-                    <Grid Margin="0,0,158,10" HorizontalAlignment="Right" Width="143" >
-                        <Button Content="Zarządzaj pracownikami" Margin="12,34,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
-                        <Button Content="Zarządzaj reklamacjami" Margin="12,93,10,0" VerticalAlignment="Top" Height="54" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
-
-                    </Grid>
+                    
 
                 </Grid>
             </TabItem>
-            <TabItem Header="4Pracownicy" >
-                
+            <TabItem Header="3Pracownicy" >
+                <Grid>
+                   
+                    <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
+                    <Label Content="Panel pracownicy" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
+                 
+                    <Grid HorizontalAlignment="Right" Width="143" >
+                        <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
+                    </Grid>
+                </Grid>
             </TabItem>
-            <TabItem Header="5zamowienia" >
+            <TabItem Header="4zamowienia" >
+                <Grid>
+                    <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
+                    <Label Content="Panel zamowienia" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
 
+                    <Grid HorizontalAlignment="Right" Width="143" >
+                        <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
+                    </Grid>
+                </Grid>
             </TabItem>
-            <TabItem Header="6reklamacje" >
+            <TabItem Header="5reklamacje" >
+                <Grid>
+                    <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
+                    <Label Content="Panel reklamacje" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
 
+                    <Grid HorizontalAlignment="Right" Width="143" >
+                        <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="6ZamieniaZ" >
+                <Grid>
+                    <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
+                    <Label Content="Panel Złóż zamówienie" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
+
+                    <Grid HorizontalAlignment="Right" Width="143" >
+                        <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="7 zlreklamacje" >
+                <Grid>
+                    <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
+                    <Label Content="Panel Złóż reklamacje" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
+
+                    <Grid HorizontalAlignment="Right" Width="143" >
+                        <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
+                        <Button Content="Złóż zamówienie" Margin="12,26,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="6"/>
+                        <Button Content="złóż reklamacje" Margin="12,116,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="7"/>
+                        <Button Content="Stwórz raport" Margin="12,206,10,0" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold"/>
+                        <Button Content="Przeglądaj" Margin="12,251,10,0" RenderTransformOrigin="0.5,0.5" Height="40" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="4"/>
+                        <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
+                        <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
+                    </Grid>
+                </Grid>
             </TabItem>
         </TabControl>
 
