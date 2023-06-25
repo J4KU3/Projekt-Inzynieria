@@ -56,6 +56,7 @@ namespace ProjektInzynieria.ViewModel
             LoginCommand = new RelayCommand(Login);
             LogoutCommand = new RelayCommand(Logout);
             CloseProgram = new RelayCommand(Cl);
+            GetEmployeesFromDatabase();
         }
         //
 
@@ -140,6 +141,35 @@ namespace ProjektInzynieria.ViewModel
             Application.Current.Shutdown();
 
 
+        }
+
+        #endregion
+
+        #region Panel PRacownicy
+
+        private ObservableCollection<EmployeesModel> _listofEmployees;
+
+        public ObservableCollection<EmployeesModel> ListofEmployees
+        {
+            get { return _listofEmployees; }
+            set
+            {
+                _listofEmployees = value;
+                OnPropertyChanged(nameof(ListofEmployees));
+            }
+        }
+
+        private void GetEmployeesFromDatabase()
+        {
+            using (var context = new ZarzadzanieFirmaDBEntities())
+            {
+                List<Employees> employeesList = context.Employees.ToList();
+
+                // Dokonaj jawnej konwersji na listę obiektów EmployeesModel
+                List<EmployeesModel> convertedList = employeesList.Select(e => new EmployeesModel(e)).ToList();
+
+                ListofEmployees = new ObservableCollection<EmployeesModel>(convertedList);
+            }
         }
 
         #endregion

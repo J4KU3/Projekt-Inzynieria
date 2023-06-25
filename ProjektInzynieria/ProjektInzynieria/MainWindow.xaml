@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <vm:MainViewModel />
+        <vm:MainViewModel/>
     </Window.DataContext>
     <Grid>
 
@@ -57,7 +57,7 @@
                         <Button Content="Przeglądaj zamówienia" Margin="12,152,10,0" RenderTransformOrigin="0.5,0.5" Height="54" VerticalAlignment="Top" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="2"/>
 
                     </Grid>
-                   
+
 
                 </Grid>
             </TabItem>
@@ -75,16 +75,16 @@
                         <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
                         <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
                     </Grid>
-                    
+
 
                 </Grid>
             </TabItem>
             <TabItem Header="3Pracownicy" >
-                <Grid>
-                   
+                <Grid RenderTransformOrigin="0.497,0.471">
+
                     <Image Source="Images/Zdjecie2.jpg" Margin="-288,-307,-340.333,-16"/>
                     <Label Content="Panel pracownicy" HorizontalAlignment="Left" Margin="296,199,0,0" VerticalAlignment="Top"/>
-                 
+
                     <Grid HorizontalAlignment="Right" Width="143" >
                         <Button Content="Wyloguj" Margin="12,0,9.667,74" VerticalAlignment="Bottom" Height="54" Command="{Binding LogoutCommand}" Background="{x:Null}" FontWeight="Bold"/>
                         <Button Content="Exit" Margin="12,0,10,10" Background="{x:Null}" Height="59" VerticalAlignment="Bottom" FontWeight="Bold" Command="{Binding CloseProgram}" />
@@ -95,6 +95,17 @@
                         <Button Content="Zarządzaj pracownikami" Margin="13,71,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="3"/>
                         <Button Content="Zarządzaj reklamacjami" Margin="12,161,10,0" VerticalAlignment="Top" Height="40" Background="{x:Null}" FontWeight="Bold" Command="{Binding ChangeTabCommand}" CommandParameter="5"/>
                     </Grid>
+                    <DataGrid ItemsSource="{Binding ListofEmployees}" AutoGenerateColumns="False" Margin="0,63,203.667,70">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding employeeID}" />
+                            <DataGridTextColumn Header="First Name" Binding="{Binding EFirstName}" />
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding ELastName}" />
+                            <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" />
+                            <DataGridTextColumn Header="Email" Binding="{Binding Mail}" />
+                            <!-- Dodaj pozostałe kolumny według potrzeb -->
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                 </Grid>
             </TabItem>
             <TabItem Header="4zamowienia" >
