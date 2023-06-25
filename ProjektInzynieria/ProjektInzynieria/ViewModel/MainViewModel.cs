@@ -128,8 +128,9 @@ namespace ProjektInzynieria.ViewModel
             {
                 if (SelectedTabIndex=="3" || SelectedTabIndex=="5" || SelectedTabIndex=="8")
                 {
-                    MessageBox.Show("nie mozesz");
                     SelectedTabIndex = "1";
+                    MessageBox.Show("nie mozesz");
+                    
                 }
 
 
