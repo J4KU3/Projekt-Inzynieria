@@ -26,6 +26,8 @@ namespace ProjektInzynieria
             InitializeComponent();
             
         }
+        
+
 
         
     }

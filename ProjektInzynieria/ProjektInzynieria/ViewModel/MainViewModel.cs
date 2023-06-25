@@ -122,6 +122,18 @@ namespace ProjektInzynieria.ViewModel
         {
 
             SelectedTabIndex = TabIndex;
+            bool IsAdmin = true;
+            bool haveAnAdminFunction = CheckAdmin(Employee.Mail, Employee.Passsword, IsAdmin);
+            if (!haveAnAdminFunction)
+            {
+                if (SelectedTabIndex=="3" || SelectedTabIndex=="5" || SelectedTabIndex=="8")
+                {
+                    MessageBox.Show("nie mozesz");
+                    SelectedTabIndex = "1";
+                }
+
+
+            }
             
         }
 
@@ -203,6 +215,9 @@ namespace ProjektInzynieria.ViewModel
         #endregion
 
         #region Panel PRacownicy
+
+        
+
         private EmployeesModel _selectedUser;
 
         public EmployeesModel SelectedUser
@@ -264,6 +279,7 @@ namespace ProjektInzynieria.ViewModel
             }
 
         }
+       
 
         public void DeleteEmployee()
         {
