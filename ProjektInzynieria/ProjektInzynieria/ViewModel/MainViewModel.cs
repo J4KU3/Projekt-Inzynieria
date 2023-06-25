@@ -33,6 +33,56 @@ namespace ProjektInzynieria.ViewModel
             }
         }
 
+        #region ListOFModel
+
+        private ObservableCollection<EmployeesModel> _listofEmployees;
+
+        public ObservableCollection<EmployeesModel> ListofEmployees
+        {
+            get { return _listofEmployees; }
+            set
+            {
+                _listofEmployees = value;
+                OnPropertyChanged(nameof(ListofEmployees));
+            }
+        }
+
+        private ObservableCollection<ClientModel> _listofClient;
+
+        public ObservableCollection<ClientModel> ListofClient
+        {
+            get { return _listofClient; }
+            set
+            {
+                _listofClient = value;
+                OnPropertyChanged(nameof(ListofClient));
+            }
+        }
+
+        private ObservableCollection<ComplaintsModel> _listofComplaints;
+
+        public ObservableCollection<ComplaintsModel> ListofComplaints
+        {
+            get { return _listofComplaints; }
+            set
+            {
+                _listofComplaints = value;
+                OnPropertyChanged(nameof(ListofComplaints));
+            }
+        }
+
+        private ObservableCollection<OrderModel> _listofOrders;
+
+        public ObservableCollection<OrderModel> ListofOrders
+        {
+            get { return _listofOrders; }
+            set
+            {
+                _listofOrders = value;
+                OnPropertyChanged(nameof(ListofOrders));
+            }
+        }
+#endregion
         public string SelectedTabIndex
         {
             get { return _selectedTabIndex; }
@@ -47,6 +97,9 @@ namespace ProjektInzynieria.ViewModel
         public ICommand LoginCommand { get; }
         public ICommand LogoutCommand { get; }
         public ICommand CloseProgram { get; }
+        public ICommand AddUserCommand{ get; }
+        public ICommand DeleteUserCommand { get; }
+        public ICommand EditUserCommand { get; }
 
         //konstruktor
         public MainViewModel()
@@ -56,7 +109,11 @@ namespace ProjektInzynieria.ViewModel
             LoginCommand = new RelayCommand(Login);
             LogoutCommand = new RelayCommand(Logout);
             CloseProgram = new RelayCommand(Cl);
+            AddUserCommand = new RelayCommand(AddEmployee);
+            DeleteUserCommand = new RelayCommand(DeleteEmployee);
+            EditUserCommand = new RelayCommand(EditEmployee);
             GetEmployeesFromDatabase();
+            GetOrders();
         }
         //
 
@@ -93,8 +150,8 @@ namespace ProjektInzynieria.ViewModel
             {
 
                 // Wyczyść pola logowania
-                Employee.Mail = string.Empty;
-                Employee.Passsword = string.Empty;
+                Employee.Mail = null;
+                Employee.Passsword = null;
                 IsLogin = false;
             }
         }
@@ -124,8 +181,8 @@ namespace ProjektInzynieria.ViewModel
         private void Logout()
         {
             
-            Employee.Mail = string.Empty;
-            Employee.Passsword = string.Empty;
+            Employee.Mail = null;
+            Employee.Passsword = null;
             IsLogin = false;
 
           
@@ -146,18 +203,18 @@ namespace ProjektInzynieria.ViewModel
         #endregion
 
         #region Panel PRacownicy
+        private EmployeesModel _selectedUser;
 
-        private ObservableCollection<EmployeesModel> _listofEmployees;
-
-        public ObservableCollection<EmployeesModel> ListofEmployees
+        public EmployeesModel SelectedUser
         {
-            get { return _listofEmployees; }
+            get { return _selectedUser; }
             set
             {
-                _listofEmployees = value;
-                OnPropertyChanged(nameof(ListofEmployees));
+                _selectedUser = value;
+                OnPropertyChanged(nameof(SelectedUser));
             }
         }
+
 
         private void GetEmployeesFromDatabase()
         {
@@ -172,6 +229,120 @@ namespace ProjektInzynieria.ViewModel
             }
         }
 
+        public void AddEmployee()
+        {
+            using (var context = new ZarzadzanieFirmaDBEntities())
+            {
+                // Utwórz nowy obiekt pracownika na podstawie wprowadzonych danych
+                var newEmployee = new Employees
+                {
+                    employeeID = Employee.employeeID,
+                    EFirstName = Employee.EFirstName,
+                    ELastName = Employee.ELastName,
+                    Phone = Employee.Phone,
+                    Mail = Employee.Mail,
+                    Passsword = Employee.Passsword,
+                    IsAdmin = Employee.IsAdmin
+                };
+
+                // Dodaj nowego pracownika do kontekstu bazy danych
+                context.Employees.Add(newEmployee);
+                context.SaveChanges();
+
+                // Wyczyść wprowadzone dane
+                Employee.EFirstName = string.Empty;
+                Employee.ELastName = string.Empty;
+                Employee.Phone = string.Empty;
+                Employee.Mail = string.Empty;
+                Employee.Passsword = string.Empty;
+                Employee.IsAdmin = false;
+
+                // Odśwież listę pracowników z bazy danych i cofnij na zarzadzanie pracownikami
+                SelectedTabIndex = "3";
+                GetEmployeesFromDatabase();
+                
+            }
+
+        }
+
+        public void DeleteEmployee()
+        {
+            if (SelectedUser != null)
+            {
+                using (var context = new ZarzadzanieFirmaDBEntities())
+                {
+                    var employeeToDelete = context.Employees.FirstOrDefault(e => e.employeeID == SelectedUser.employeeID);
+                    if (employeeToDelete != null)
+                    {
+                        context.Employees.Remove(employeeToDelete);
+                        context.SaveChanges();
+                        GetEmployeesFromDatabase(); // Aktualizuj listę pracowników
+                        SelectedUser = null; // Czyść wybranego pracownika
+                    }
+                }
+            }
+        }
+
+        public void EditEmployee()
+        {
+            if (SelectedUser != null)
+            {
+                using (var context = new ZarzadzanieFirmaDBEntities())
+                {
+                    var employeeToEdit = context.Employees.FirstOrDefault(e => e.employeeID == SelectedUser.employeeID);
+                    if (employeeToEdit != null)
+                    {
+                        employeeToEdit.employeeID = SelectedUser.employeeID;
+                        employeeToEdit.EFirstName = SelectedUser.EFirstName;
+                        employeeToEdit.ELastName = SelectedUser.ELastName;
+                        employeeToEdit.Mail = SelectedUser.Mail;
+                        employeeToEdit.Phone = SelectedUser.Phone;
+                        employeeToEdit.Passsword = SelectedUser.Passsword;
+                        employeeToEdit.IsAdmin = SelectedUser.IsAdmin;
+
+
+                        context.SaveChanges();
+                        GetEmployeesFromDatabase(); // Aktualizuj listę pracowników
+                        SelectedUser = null; // Czyść wybranego pracownika
+                    }
+                }
+            }
+        }
+
+
+        #endregion
+
+        #region panel Zamowienia 
+
+        private void GetOrders()
+        {
+            using (var context = new ZarzadzanieFirmaDBEntities())
+            {
+                List<Orders> orderList = context.Orders.ToList();
+
+                // Dokonaj jawnej konwersji na listę obiektów EmployeesModel
+                List<OrderModel> convertedList = orderList.Select(e => new OrderModel(e)).ToList();
+
+                ListofOrders = new ObservableCollection<OrderModel>(convertedList);
+            }
+        }
+        #endregion
+
+
+        #region panel Reklamacje
+
+        private void GetComplaints()
+        {
+            using (var context = new ZarzadzanieFirmaDBEntities())
+            {
+                List<Complaints> ComplaintsList = context.Complaints.ToList();
+
+                // Dokonaj jawnej konwersji na listę obiektów EmployeesModel
+                List<ComplaintsModel> convertedList = ComplaintsList.Select(e => new ComplaintsModel(e)).ToList();
+
+                ListofComplaints = new ObservableCollection<ComplaintsModel>(convertedList);
+            }
+        }
         #endregion
     }
 }
