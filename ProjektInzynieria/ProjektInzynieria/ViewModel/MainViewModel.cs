@@ -112,8 +112,7 @@ namespace ProjektInzynieria.ViewModel
             AddUserCommand = new RelayCommand(AddEmployee);
             DeleteUserCommand = new RelayCommand(DeleteEmployee);
             EditUserCommand = new RelayCommand(EditEmployee);
-            GetEmployeesFromDatabase();
-            GetOrders();
+           
         }
         //
 
@@ -129,7 +128,7 @@ namespace ProjektInzynieria.ViewModel
                 if (SelectedTabIndex=="3" || SelectedTabIndex=="5" || SelectedTabIndex=="8")
                 {
                     SelectedTabIndex = "1";
-                    MessageBox.Show("nie mozesz");
+                    MessageBox.Show("nie masz dostepu do funkcji admina");
                     
                 }
 
@@ -147,6 +146,8 @@ namespace ProjektInzynieria.ViewModel
             bool IsAdmin=true;
             bool isEmployeeExists = CheckEmployeeExists(Employee.Mail, Employee.Passsword);
             bool haveAnAdminFunction = CheckAdmin(Employee.Mail, Employee.Passsword, IsAdmin);
+            GetEmployeesFromDatabase();
+            GetOrders();
 
             if (isEmployeeExists && !haveAnAdminFunction)
             {
@@ -163,9 +164,11 @@ namespace ProjektInzynieria.ViewModel
             {
 
                 // Wyczyść pola logowania
+                MessageBox.Show("Nie zalogowano");
                 Employee.Mail = null;
                 Employee.Passsword = null;
                 IsLogin = false;
+                
             }
         }
 
