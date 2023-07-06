@@ -26,7 +26,7 @@
                         <Label Content="Hasło" Margin="10,147,31,0" VerticalAlignment="Top" Height="53" FontSize="25"/>
                         <TextBox x:Name="PasswordBo" Height="50" Margin="10,205,20,0" TextWrapping="Wrap" Text="{Binding Employee.Passsword, Mode=TwoWay}" VerticalAlignment="Top" FontSize="30"/>
 
-                        <Button Content="Zaloguj" Cursor="Hand" Command="{Binding LoginCommand}"  Margin="10,0,10,10" Height="131" VerticalAlignment="Bottom" Background="{x:Null}"/>
+                        <Button Content="Zaloguj" Cursor="Hand" Command="{Binding LoCommand}"  Margin="10,0,10,10" Height="131" VerticalAlignment="Bottom" Background="{x:Null}"/>
 
                     </Grid>
                     <Image Source="Images\Zdjecje1.jpg" Grid.Column="1" Margin="0,-616,-18.333,-587"/>

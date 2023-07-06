@@ -7,19 +7,13 @@ using System.Windows.Input;
 
 namespace ProjektInzynieria.Comand
 {
-   public class BaseCommand : ICommand
+   public abstract class BaseCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual bool CanExecute(object parameter) => true;
 
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Execute(object parameter);
 
         public virtual void OnCanExecuteChanged()
         {

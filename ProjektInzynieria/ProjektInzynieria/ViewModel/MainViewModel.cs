@@ -22,7 +22,7 @@ namespace ProjektInzynieria.ViewModel
 
         private EmployeesModel _employee;
         private string _selectedTabIndex;
-        private bool IsLogin =false;
+        public bool IsLogin =false;
         public EmployeesModel Employee
         {
             get { return _employee; }
@@ -89,29 +89,33 @@ namespace ProjektInzynieria.ViewModel
             set
             {
                 _selectedTabIndex = value;
+                LoCommand.OnCanExecuteChanged();
                 OnPropertyChanged(nameof(SelectedTabIndex));
             }
         }
 
         public ICommand ChangeTabCommand { get; }
-        public ICommand LoginCommand { get; }
+       
         public ICommand LogoutCommand { get; }
         public ICommand CloseProgram { get; }
         public ICommand AddUserCommand{ get; }
         public ICommand DeleteUserCommand { get; }
         public ICommand EditUserCommand { get; }
 
+        public LogCommand LoCommand { get; }
+
         //konstruktor
         public MainViewModel()
         {
             Employee = new EmployeesModel(new Employees());
             ChangeTabCommand = new RelayCommand<string>(ChangeTab);
-            LoginCommand = new RelayCommand(Login);
+         
             LogoutCommand = new RelayCommand(Logout);
             CloseProgram = new RelayCommand(Cl);
             AddUserCommand = new RelayCommand(AddEmployee);
             DeleteUserCommand = new RelayCommand(DeleteEmployee);
             EditUserCommand = new RelayCommand(EditEmployee);
+            LoCommand = new LogCommand(this);
            
         }
         //
@@ -141,46 +145,9 @@ namespace ProjektInzynieria.ViewModel
 
 
         #region logowanie
-        private void Login()
-        {
-            bool IsAdmin=true;
-            bool isEmployeeExists = CheckEmployeeExists(Employee.Mail, Employee.Passsword);
-            bool haveAnAdminFunction = CheckAdmin(Employee.Mail, Employee.Passsword, IsAdmin);
-            GetEmployeesFromDatabase();
-            GetOrders();
+        
 
-            if (isEmployeeExists && !haveAnAdminFunction)
-            {
-                // Przejście do innej zakładki
-                SelectedTabIndex = "1";
-                IsLogin = true;
-            }
-            if (isEmployeeExists && haveAnAdminFunction)
-            {
-                SelectedTabIndex = "2";
-                IsLogin = true;
-            }
-            else
-            {
-
-                // Wyczyść pola logowania
-                MessageBox.Show("Nie zalogowano");
-                Employee.Mail = null;
-                Employee.Passsword = null;
-                IsLogin = false;
-                
-            }
-        }
-
-        private bool CheckEmployeeExists(string username, string password)
-        {
-            using (var context = new Data.ZarzadzanieFirmaDBEntities())
-            {
-                var employee = context.Employees.FirstOrDefault(e => e.Mail == username && e.Passsword == password);
-                return employee != null;
-            }
-           
-        }
+       
         private bool CheckAdmin(string username, string password, bool isAdmin)
         {
             using (var context = new Data.ZarzadzanieFirmaDBEntities())
@@ -235,7 +202,7 @@ namespace ProjektInzynieria.ViewModel
         }
 
 
-        private void GetEmployeesFromDatabase()
+        public void GetEmployeesFromDatabase()
         {
             using (var context = new ZarzadzanieFirmaDBEntities())
             {
@@ -334,7 +301,7 @@ namespace ProjektInzynieria.ViewModel
 
         #region panel Zamowienia 
 
-        private void GetOrders()
+        public void GetOrders()
         {
             using (var context = new ZarzadzanieFirmaDBEntities())
             {
