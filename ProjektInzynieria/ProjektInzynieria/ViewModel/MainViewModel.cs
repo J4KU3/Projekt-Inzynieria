@@ -89,7 +89,7 @@ namespace ProjektInzynieria.ViewModel
             set
             {
                 _selectedTabIndex = value;
-                LoCommand.OnCanExecuteChanged();
+               // LoCommand.OnCanExecuteChanged();
                 OnPropertyChanged(nameof(SelectedTabIndex));
             }
         }
@@ -102,7 +102,7 @@ namespace ProjektInzynieria.ViewModel
         public ICommand DeleteUserCommand { get; }
         public ICommand EditUserCommand { get; }
 
-        public LogCommand LoCommand { get; }
+      //  public LogCommand LoCommand { get; }
 
         //konstruktor
         public MainViewModel()
@@ -115,7 +115,7 @@ namespace ProjektInzynieria.ViewModel
             AddUserCommand = new RelayCommand(AddEmployee);
             DeleteUserCommand = new RelayCommand(DeleteEmployee);
             EditUserCommand = new RelayCommand(EditEmployee);
-            LoCommand = new LogCommand(this);
+          //  LoCommand = new LogCommand(this);
            
         }
         //
